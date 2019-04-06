@@ -211,6 +211,11 @@ def run():
                                                                           x_calibrate, y_calibrate, x_test, y_test,
                                                                           cv_sets,
                                                                           parameters, n_jobs)
+    # Plotting train and test scores
+    best_clf = clfs[np.argmax(test_scores)]
+    best_dm_reduce = dm_reductions[np.argmax(test_scores)]
+    print("The best classifier is a {} with {}.".format(best_clf.base_estimator.__class__.__name__,
+                                                        best_dm_reduce.__class__.__name__))
 
 
 run()
